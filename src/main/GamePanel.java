@@ -10,7 +10,7 @@ public class GamePanel extends JPanel {
         // calling super class paintComponent method
         super.paintComponent(g);
 
-        g.drawRect();
+        g.drawRect(100,100,200,50);
 
     }
 }
