@@ -32,6 +32,8 @@ public class KeyboardInputs implements KeyListener {
             case KeyEvent.VK_S:
                 System.out.println("It's S");
                 break;
+            case KeyEvent.VK_SPACE:
+                gamePanel.jump();
 
         }
 

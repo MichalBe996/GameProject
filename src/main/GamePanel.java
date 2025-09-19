@@ -25,16 +25,24 @@ public class GamePanel extends JPanel {
 
     }
     public void changeYDelta(int value){
-        this.yDelta += value;
+        this.yDelta -= value;
         repaint();
 
+    }
+    public void jump(){
+        int jumpValue = 20;
+        for(int i=0; i < 20; i++){
+            changeYDelta(jumpValue);
+            jumpValue -= 5;
+
+        }
     }
 
     public void paintComponent(Graphics g){
         // calling super class paintComponent method
         super.paintComponent(g);
 
-        g.fillRect(100+xDelta, 100 + yDelta,200,50);
+        g.fillRect(100+xDelta, 200 + yDelta,200,50);
 
 
     }
