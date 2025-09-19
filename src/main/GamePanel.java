@@ -12,11 +12,14 @@ public class GamePanel extends JPanel {
         addKeyListener(new KeyboardInputs(this));
     }
 
-    public void checkBorders(){
 
-    }
-    public void changeXDelta(int value){
-        this.xDelta += value;
+    public void changeXDelta(int value, int border){
+        if(this.xDelta + value == border){
+            this.xDelta = this.xDelta;
+        }else{
+            this.xDelta += value;
+        }
+
 
         repaint();
 
