@@ -21,19 +21,19 @@ public class KeyboardInputs implements KeyListener {
     public void keyPressed(KeyEvent e){
         switch(e.getKeyCode()){
             case KeyEvent.VK_A:
-                gamePanel.changeXDelta(-10, -100);
+                gamePanel.changeXDelta(-10, -110);
                 break;
             case KeyEvent.VK_D:
                 gamePanel.changeXDelta(10, 100);
                 break;
             case KeyEvent.VK_W:
-                System.out.println("It's W");
+                gamePanel.changeYDelta(-10 ,-210);
                 break;
             case KeyEvent.VK_S:
-                System.out.println("It's S");
+                gamePanel.changeYDelta(10, 130);
+
                 break;
-            case KeyEvent.VK_SPACE:
-                gamePanel.jump();
+
 
         }
 
