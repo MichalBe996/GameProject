@@ -46,7 +46,7 @@ public class GamePanel extends JPanel {
 
 
 
-        g.fillRect(100+xDelta, 200 + yDelta,200,50);
+        g.fillRect(300+xDelta, 200 + yDelta,50,200);
         frames++;
         // checking out last timeframe
             if(System.currentTimeMillis() - lastCheck >= 1000){
@@ -61,17 +61,7 @@ public class GamePanel extends JPanel {
     }
 
     private void updateRectangle() {
-        xDelta += xDir;
-        if(xDelta > 100 || xDelta < 0){
-
-            xDir *= -1;
-        }
-        yDelta += yDir;
-        if(yDelta >50 || yDelta < 0){
-
-            yDir *= -1;
-
-        }
+        xDelta -= 10;
     }
 
     private Color setNewColor() {
