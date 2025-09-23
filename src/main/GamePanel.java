@@ -8,11 +8,10 @@ import java.util.Random;
 
 
 public class GamePanel extends JPanel {
-    private int xDelta = 0, yDelta = 0;
-    private int xDir = 1, yDir = 1;
+    private float xDelta = 400, yDelta = 200;
+    private float xDir = 0.1f, yDir = 0.1f;
     private int frames = 0;
     private Random random = new Random();
-    private Color color = new Color(150,20,90);
     private long lastCheck = 0;
     public GamePanel() {
         addKeyListener(new KeyboardInputs(this));
@@ -41,12 +40,13 @@ public class GamePanel extends JPanel {
         public void paintComponent(Graphics g){
         // calling super class paintComponent method
         super.paintComponent(g);
-        updateRectangle();
-        g.setColor(setNewColor());
+        updateRectangle(g);
+        g.setColor(Color.RED);
 
 
 
-        g.fillRect(300+xDelta, 200 + yDelta,50,200);
+
+        g.fillRect((int) xDelta, (int) yDelta, 50, 200);
         frames++;
         // checking out last timeframe
             if(System.currentTimeMillis() - lastCheck >= 1000){
@@ -60,18 +60,13 @@ public class GamePanel extends JPanel {
 
     }
 
-    private void updateRectangle() {
-        xDelta -= 10;
-    }
-
-    private Color setNewColor() {
-        int r = 0;
-        int g = 0;
-        int b = 0;
-        r = random.nextInt(255);
-        g = random.nextInt(255);
-        b = random.nextInt(255);
-        return new Color(r, g , b);
-
+    private void updateRectangle(Graphics g) {
+        xDelta -= xDir;
+        if(xDelta < 200 ){
+            xDelta = 400;
+            g.fillRect((int )xDelta,(int) yDelta, 50, 200);
+        }
     }
 }
+
+
