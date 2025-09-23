@@ -40,13 +40,9 @@ public class GamePanel extends JPanel {
         public void paintComponent(Graphics g){
         // calling super class paintComponent method
         super.paintComponent(g);
+        g.fillRect((int)xDelta, (int)yDelta, 50, 200);
         updateRectangle(g);
-        g.setColor(Color.RED);
 
-
-
-
-        g.fillRect((int) xDelta, (int) yDelta, 50, 200);
         frames++;
         // checking out last timeframe
             if(System.currentTimeMillis() - lastCheck >= 1000){
@@ -62,8 +58,9 @@ public class GamePanel extends JPanel {
 
     private void updateRectangle(Graphics g) {
         xDelta -= xDir;
-        if(xDelta < 200 ){
+        if(xDelta < -50 ){
             xDelta = 400;
+            yDelta = random.nextInt(400);
             g.fillRect((int )xDelta,(int) yDelta, 50, 200);
         }
     }
