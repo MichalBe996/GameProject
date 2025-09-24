@@ -11,6 +11,7 @@ public class GamePanel extends JPanel {
     private float xDelta = 400, yDelta = 200;
     private float xDir = 0.1f, yDir = 0.1f;
     private int frames = 0;
+    private Color color = new Color(200,0,0);
     private Random random = new Random();
     private long lastCheck = 0;
     public GamePanel() {
@@ -40,8 +41,10 @@ public class GamePanel extends JPanel {
         public void paintComponent(Graphics g){
         // calling super class paintComponent method
         super.paintComponent(g);
+        g.setColor(color);
         g.fillRect((int)xDelta, (int)yDelta, 50, 200);
         updateRectangle(g);
+
 
         frames++;
         // checking out last timeframe
@@ -60,9 +63,24 @@ public class GamePanel extends JPanel {
         xDelta -= xDir;
         if(xDelta < -50 ){
             xDelta = 400;
+
             yDelta = random.nextInt(400);
             g.fillRect((int )xDelta,(int) yDelta, 50, 200);
+            color = generateRandomColor();
+            System.out.println("Color = " + color);
+
+
         }
+
+    }
+    private Color generateRandomColor(){
+        int r = 0;
+        int g = 0;
+        int b = 0;
+        r = random.nextInt(255);
+        g = random.nextInt(255);
+        b = random.nextInt(255);
+        return new Color(r,g ,b);
     }
 }
 
