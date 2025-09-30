@@ -13,6 +13,7 @@ public class GamePanel extends JPanel {
     private int frames = 0;
     private Color color = new Color(200,0,0);
     private Random random = new Random();
+    public int randomNumber;
     private long lastCheck = 0;
     public GamePanel() {
         addKeyListener(new KeyboardInputs(this));
@@ -64,9 +65,13 @@ public class GamePanel extends JPanel {
         if(xDelta < -50 ){
             xDelta = 400;
 
-            yDelta = random.nextInt(400);
+            yDelta = random.nextInt(100, 400);
             g.fillRect((int )xDelta,(int) yDelta, 50, 200);
             color = generateRandomColor();
+            randomNumber = random.nextInt(50,55);
+
+
+            System.out.println("Random number for this iteration is: " + randomNumber);
             System.out.println("Color = " + color);
 
 
